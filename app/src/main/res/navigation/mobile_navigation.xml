@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@+id/navigation_camera">
+
+    <fragment
+        android:id="@+id/navigation_camera"
+        android:name="com.instoriestest.task.ui.camera.CameraFragment"
+        android:label="@string/title_camera"
+        tools:layout="@layout/fragment_chats" />
+
+    <fragment
+        android:id="@+id/navigation_chats"
+        android:name="com.instoriestest.task.ui.chats.ChatsFragment"
+        android:label="@string/title_chats"
+        tools:layout="@layout/fragment_selected_chat">
+        <action
+            android:id="@+id/action_navigation_chats_to_navigation_selected_chat"
+            app:destination="@id/navigation_selected_chat" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_selected_chat"
+        android:name="com.instoriestest.task.ui.chat.SelectedChatFragment"
+        android:label="@string/title_selected_chat"
+        tools:layout="@layout/fragment_camera">
+        <argument
+            android:name="chat"
+            app:argType="com.instoriestest.task.entities.Chat" />
+    </fragment>
+</navigation>
